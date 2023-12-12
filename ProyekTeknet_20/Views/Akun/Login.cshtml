@@ -1,0 +1,40 @@
+﻿@model  ProyekPasti_20.Models.Akun
+
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_LayoutPageLogin.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form action="Login" class="signin-form" method="post">
+        <!-- Form Group (email address)-->
+        <div class="mb-3">
+      @*      @Html.EditorFor(model => model.username, new { htmlAttributes = new { @name = "Username", @placeholder = "Username", @required = "", @autofokus = "autofocus" } })*@
+            <label class="small mb-1" for="inputUsername">Username</label>
+            <input name="username" id="username" class="form-control" type="text" placeholder="Enter Username" />
+        </div>
+        <!-- Form Group (password)-->
+        <div class="mb-3">
+            <label class="small mb-1" for="inputPassword">Password</label>
+@*            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @name = "Password", @placeholder = "Password", @required = "", @type = "password" } })*@
+            <label class="small mb-1" for="inputPassword">Password</label>
+            <input class="form-control" name="password" id="password" type="password" placeholder="Enter password" />
+        </div>
+        <!-- Form Group (remember password checkbox)-->
+        <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" id="rememberPasswordCheck" type="checkbox" value="" />
+                <label class="form-check-label" for="rememberPasswordCheck">Remember password</label>
+            </div>
+            <div class="row justify-content-center">
+                <button class="btn btn-primary">Login</button>
+            </div>
+</form>
+}

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+
+}
+
+
+<!-- banner section -->
+<section id="home" class="w3l-banner py-5">
+    <div class="">
+
+    </div>
+    <div class="banner-content">
+        <div class="container pt-5 pb-md-4">
+            <div class="row align-items-right">
+                <div class="col-lg-12 pt-md-0 pt-4">
+                    <div class="container-fluid">
+                        <h3 class="mb-lg-12 mb-3 title"><span class="typed-text"></span><span>Selamat Datang Ke Vaksin Tracking 20</span></h3>
+                            <p>
+                                Vaccine Tracking merupakan website yang memfasilitasi masyarakat , produsen, pemerintah, bopm
+                                maupun rumahsakit dalam melakukan validasi penyebaran vaksin kepada masyarakat.
+                            </p>
+                    </div>
+                    
+                    @if (User.IsInRole("Masyarakat"))
+                    {
+                        <div class="mt-md-5 mt-4 mb-lg-0 mb-4">
+                            @Html.ActionLink("Cek Vaksin", "Vaksin", null, new { @class = "btn btn-primary" })
+                        </div>}
+                    @if (User.IsInRole("Produsen"))
+                    {
+                        <div class="mt-md-5 mt-4 mb-lg-0 mb-4">
+                            @Html.ActionLink("Kelola Vaksin", "Vaksin", null, new { @class = "btn btn-primary" })
+                        </div>}
+                    @if (User.IsInRole("RumahSakit"))
+                    {
+                        <div class="mt-md-2 mt-4 mb-lg-0 mb-4">
+                            @Html.ActionLink("Konfirmasi", "Konfirmasi", null, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Cek Vaksin", "Vaksin", null, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Cek NIK", "NIK", null, new { @class = "btn btn-primary" })
+                        </div>
+                    }
+                    @if (User.IsInRole("BPOM"))
+                    {
+                        <div class="mt-md-5 mt-4 mb-lg-0 mb-4">
+                            @Html.ActionLink("Telusuri Vaksin", "Vaksin", null, new { @class = "btn btn-primary" })
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //banner section -->
